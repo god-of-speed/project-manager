@@ -1,0 +1,199 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/pro.css') }}" type="text/css" />
+    <style>
+     .proBody{
+         height:100%;
+     }
+     .doc{
+         width:70%;
+         margin:0px 0px 0px 10px;
+         padding:0px 10px 10px 10px;
+         float:left;
+         height:100%;
+         background-color:#ddd;
+         overflow:auto;
+     } 
+    section{
+         margin:20px 0px 0px 10px;
+         width:95%;
+         height:70%;
+         overflow: hidden;
+         padding:0px;
+         background-color:ghostwhite;
+     }
+          .myForm{
+              
+              margin:0;
+              width:95%;
+              margin:20px 0px 0px 0px;
+          }
+          .me{
+              border-bottom:1px solid maroon;
+          }
+          #sectionFirst{
+              width:80%;
+              padding:10px;
+              margin:0px;
+              float:left;
+              background-color:inherit;
+          }
+          #sectionSecond{
+              width:20%;
+              height:100%;
+              padding:10px;
+              margin:0px;
+              float:left;
+              background-color:#ddd;
+          }
+          
+          .save{
+              float:right;
+              margin:10px 40px 0px 0px;
+          }
+         .row{
+             margin:5px 0px 5px 0px;
+         }
+         .label{
+             color:black;
+             font-size:15px;
+             margin:0px;
+             padding-top:7px;
+             text-align:left;
+         }
+         .in{
+             margin:0;
+             width:75%;
+             margin-left:40px;
+
+         }
+         #sectionSecond h4{
+             text-align:center;
+             border-bottom:2px solid #333;
+         }
+         .del{
+            position:relative;
+            bottom:40px;
+            left:10px;
+         }
+     </style>
+{% endblock %}
+{% block body %}
+    <div class="fluid-container proHead">
+         <h3 id="proH3">Projar</h3>
+    </div>
+    <div class="fluid-container proBody">
+    {# {{ include("inc/navHome.html.twig")}}#}
+     <div class="container navHome">
+        <button class=" btnNav" id="staff">Staff Hub <span class="pull-right arrow">></span></button>
+        <div class="subStaff ">
+            <button class="btnSubNav" id="subStaff1">Staffs</button>
+            <button class="btnSubNav" id="subStaff2">Add Staff</button>
+        </div>
+        <button class=" btnNav" id="team">Team Hub <span class="pull-right arrow">></span></button>
+        <div class="subTeam ">
+            <button class="btnSubNav" id="subTeam1">Teams</button>
+            <button class="btnSubNav" id="subTeam2">Add Team</button>
+        </div>
+        <button class=" btnNav" id="project">Project Hub <span class="pull-right arrow">></span></button>
+         <div class="subProject ">
+            <button class="btnSubNav" id="subProject1">Projects</button>
+            <button class="btnSubNav" id="subProject2">Add Project</button>
+        </div>
+        <button class=" btnNav" id="milestone">Milestone Hub <span class="pull-right arrow">></span></button>
+        <div class="subMilestone ">
+            <button class="btnSubNav" id="subMilestone1">Milestones</button>
+            <button class="btnSubNav" id="subMilestone2">Add Milestone</button>
+        </div>
+        <button class=" btnNav" id="task">Task Hub <span class="pull-right arrow">></span></button>
+        <div class="subTask ">
+            <button class="btnSubNav" id="subTask1">Tasks</button>
+            <button class="btnSubNav" id="subTask2">Add Task</button>
+        </div>
+        <button class=" btnNav" id="prospect">Prospects <span class="pull-right arrow">></span></button>
+        <div class="subProspect ">
+            <button class="btnSubNav" id="subProspect1">Prospects</button>
+            <button class="btnSubNav" id="subProspect2">Add Prospect</button>
+        </div>
+        <button class=" btnNav" id="properties">Properties <span class="pull-right arrow">></span></button>
+        <div class="subProperties ">
+            <button class="btnSubNav" id="subProperties1">Properties</button>
+            <button class="btnSubNav" id="subProperties2">Add Properties</button>
+        </div>
+        <button class="btnNav" id="inspection">Property Inspection<span class="pull-right arrow">></span></button>
+        <div class="subInspection">
+            <button class="btnSubNav" id="subInspection1">Record Inspection</button>
+        </div>
+    </div>
+    <div class="container database">
+        <div class="dbc"></div>
+    </div>
+    <div class="container doc">
+        <div class="container title">
+        <h3>{{team.name}}</h3>
+        </div>
+        <section>
+            <div id="sectionFirst">
+                <h4>Description:</h4>
+                <p>{{team.description}}</p>
+                <div class="container myForm">
+                    <div class="me">Add Team-Mate</div>
+                    {{ form_start(form , {'attr': {'class':'form-group'}}) }}
+                    {{ form_errors(form) }}
+                    <div class="row">
+                        <div class="col-xs-2 label">
+                            {{ form_label(form.name, 'Name:')}}
+                        </div>
+                        <div class="col-xs-3 in">
+                            {{ form_errors(form.name, {'attr': {'class':'form-text text-muted'}}) }}
+                            {{ form_widget(form.name, {'attr': {'class':'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="row" id="teamId">
+                        <div class="col-xs-2 label">
+                            {{ form_label(form.teamId, 'Team-Id:')}}
+                        </div>
+                        <div class="col-xs-3 in">
+                            {{ form_errors(form.teamId, {'attr': {'class':'form-text text-muted'}}) }}
+                            {{ form_widget(form.teamId, {'attr': {'class':'form-control'}}) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-2 label">
+                            {{ form_label(form.status, 'Team-Member:')}}
+                        </div>
+                        <div class="col-xs-3 in">
+                            {{ form_errors(form.status, {'attr' : {'class':'form-text text-muted'}})}}
+                            {{ form_widget(form.status,{'attr':{'class':'form-control'}})}}
+                        </div>
+                    </div>
+                    <div class="save">
+                        {{ form_widget(form.save, {'attr': {'class':'btn btn-primary'}}) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+            <div id="sectionSecond">
+                <h4>Team Members</h4>
+                <ul>
+                    {% if teamMems%}
+                    {%for teamMem in teamMems %}
+                        <li>{{ teamMem.name}}</li>
+                    {% endfor %}
+                    {% else %}
+                        <p> There are no team members in this team</p>
+                    {% endif %}
+                </ul>
+            </div>
+            <a class="btn btn-danger del"  href=" {{path("current-delete-team",{'id':team.id})}}" role="button">Delete</a>
+        </section>
+    </div>
+{% endblock %}
+{% block javascripts %}
+   {{ parent() }}
+   <script type="text/javascript" src="{{asset('assets/js/current.js')}}"></script>
+   <script>
+
+   </script>
+{% endblock %}

@@ -1,0 +1,145 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/pro.css') }}" type="text/css" />
+    <style>
+        .form-group{
+             width:90%;
+             margin:auto auto;
+             overflow:auto;
+         }
+         .form-group div{
+             width:85%;
+             margin:auto auto;
+         }
+         .label{
+             color:black;
+             font-size:15px;
+             margin:0px;
+             padding-top:17px;
+             text-align:left;
+         }
+         .in{
+             margin:10px 0px 0px 0px;
+
+         }
+         .btn{
+             margin:20px auto;
+         }
+    </style>
+{% endblock %}
+{% block body %}
+    <div class="fluid-container proHead">
+         <h3 id="proH3">Projar</h3>
+    </div>
+    <div class="fluid-container proBody">
+    {# {{ include("inc/navHome.html.twig")}}#}
+         <div class="container navHome">
+        <button class=" btnNav" id="staff">Staff Hub <span class="pull-right arrow">></span></button>
+        <div class="subStaff ">
+            <button class="btnSubNav" id="subStaff1">Staffs</button>
+            <button class="btnSubNav" id="subStaff2">Add Staff</button>
+        </div>
+        <button class=" btnNav" id="team">Team Hub <span class="pull-right arrow">></span></button>
+        <div class="subTeam ">
+            <button class="btnSubNav" id="subTeam1">Teams</button>
+            <button class="btnSubNav" id="subTeam2">Add Team</button>
+        </div>
+        <button class=" btnNav" id="project">Project Hub <span class="pull-right arrow">></span></button>
+         <div class="subProject ">
+            <button class="btnSubNav" id="subProject1">Projects</button>
+            <button class="btnSubNav" id="subProject2">Add Project</button>
+        </div>
+        <button class=" btnNav" id="milestone">Milestone Hub <span class="pull-right arrow">></span></button>
+        <div class="subMilestone ">
+            <button class="btnSubNav" id="subMilestone1">Milestones</button>
+            <button class="btnSubNav" id="subMilestone2">Add Milestone</button>
+        </div>
+        <button class=" btnNav" id="task">Task Hub <span class="pull-right arrow">></span></button>
+        <div class="subTask ">
+            <button class="btnSubNav" id="subTask1">Tasks</button>
+            <button class="btnSubNav" id="subTask2">Add Task</button>
+        </div>
+        <button class=" btnNav" id="prospect">Prospects <span class="pull-right arrow">></span></button>
+        <div class="subProspect ">
+            <button class="btnSubNav" id="subProspect1">Prospects</button>
+            <button class="btnSubNav" id="subProspect2">Add Prospect</button>
+        </div>
+        <button class=" btnNav" id="properties">Properties <span class="pull-right arrow">></span></button>
+        <div class="subProperties ">
+            <button class="btnSubNav" id="subProperties1">Properties</button>
+            <button class="btnSubNav" id="subProperties2">Add Properties</button>
+        </div>
+        <button class="btnNav" id="inspection">Property Inspection<span class="pull-right arrow">></span></button>
+        <div class="subInspection">
+            <button class="btnSubNav" id="subInspection1">Record Inspection</button>
+        </div>
+    </div>
+    <div class="container database">
+        <div class="dbc"></div>
+    </div>
+    <div class="container doc">
+        <div class="container title">
+            <h3>Milestone Entry Form</h3>
+        </div>
+        <section>
+                {{ form_start(form , {'attr': {'class':'form-group'}}) }}
+                {{ form_errors(form) }}
+           <div class="row">
+              <div class="col-xs-2 label">
+              {{ form_label(form.name, 'Name')}}
+              </div>
+              <div class="col-xs-6 in">
+              {{ form_errors(form.name, {'attr': {'class':'form-text text-muted'}}) }}
+              {{ form_widget(form.name, {'attr': {'class':'form-control'}}) }}
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-2 label">
+              {{ form_label(form.description, 'Description')}}
+              </div>
+              <div class="col-xs-6 in">
+              {{ form_errors(form.description, {'attr': {'class': 'form-text text-muted'}} )}}
+              {{ form_widget(form.description, {'attr': {'class':'form-control'}})}}
+              </div>
+          </div>
+           <div class="row" id="projectName">
+              <div class="col-xs-2 label">
+              {{ form_label(form.projectId, 'Project-Name')}}
+              </div>
+              <div class="col-xs-6 in">
+              {{ form_errors(form.projectId, {'attr': {'class': 'form-text text-muted'}} )}}
+              {{ form_widget(form.projectId, {'attr': {'class':'form-control'}})}}
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-2 label">
+                   {{ form_label(form.startDate, 'Start-Date')}}
+              </div>
+              <div class="col-xs-6 in">
+                   {{ form_errors(form.startDate, {'attr' : {'class':'form-text text-muted'}})}}
+                   {{ form_widget(form.startDate,{'attr':{'class':'form-control'}})}}
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-2 label">
+                   {{ form_label(form.endDate, 'End-Date')}}
+              </div>
+              <div class="col-xs-6 in">
+                   {{ form_errors(form.endDate, {'attr' : {'class':'form-text text-muted'}})}}
+                   {{ form_widget(form.endDate,{'attr':{'class':'form-control'}})}}
+              </div>
+          </div>
+
+          <div>
+              {{ form_widget(form.save, {'attr': {'class':'btn btn-primary'}}) }}
+          </div>
+          <div class="clearfix"></div>
+          {{ form_end(form) }}
+        </section>
+    </div>
+{% endblock %}
+{% block javascripts %}
+   {{ parent() }}
+   <script type="text/javascript" src="{{asset('assets/js/current.js')}}"></script>
+{% endblock %}
