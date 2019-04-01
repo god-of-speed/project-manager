@@ -66,7 +66,7 @@ class TeamMem
      */
     public function setName($name)
     {
-        $this->name = $name->getFirstName().' '.$name->getlastName();
+        $this->name = $name->getName();
 
         return $this;
     }

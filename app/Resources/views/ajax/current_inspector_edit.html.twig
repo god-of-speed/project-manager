@@ -261,19 +261,23 @@
   <script type="text/javascript" src="{{asset('assets/js/current.js')}}"></script>
   <script>
        $(document).ready(function(){
-            $('#addStaff').on('click',function(){
+            $('#addStaff').on('click',function(e){
+                e.preventDefault();
                  $('#divformi').fadeIn(200);
                  $('#formi').fadeIn(200);
             });
-            $('#addPros').on('click',function(){
+            $('#addPros').on('click',function(e){
+                e.preventDefault();
                  $('#divformii').fadeIn(200);
                  $('#formii').fadeIn(200);
             });
-            $('#addProp').on('click',function(){
+            $('#addProp').on('click',function(e){
+                e.preventDefault();
                  $('#divformiii').fadeIn(200);
                  $('#formiii').fadeIn(200);
             });
             $('.cancel').on('click',function(e){
+                e.preventDefault();
                 var e1 = e.target;
                 var id= $(e1).attr('id');
                 if(id === 'cancel1'){
