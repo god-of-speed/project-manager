@@ -40,7 +40,7 @@ class currentPropertiesController extends Controller
         $form = $this->createFormBuilder($properties)
                      ->add('name',TextType::class,array('label'=>'Name'))
                      ->add('location',TextareaType::class,array('label'=>'Location'))
-                     ->add('save',SubmitType::class,array('label'=>'Add Prospect'))
+                     ->add('save',SubmitType::class,array('label'=>'Add Property'))
                      ->getForm();
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
