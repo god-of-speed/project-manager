@@ -21,7 +21,7 @@ class currentController extends Controller
 {
 
 /**
-*@Route("/current-staff", name="current-staff")
+*@Route("/", name="current-staff")
 */
 public function currentStaffAction(){
     $staffRepository = $this->getDoctrine()->getManager()->getRepository('AppBundle:Staff');

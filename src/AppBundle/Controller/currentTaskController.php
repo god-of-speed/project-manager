@@ -56,7 +56,7 @@ class currentTaskController extends Controller
                                              ->setParameter('searchTerm',$milestoneId)
                                        ->orderBy('st.id','ASC');
                        },
-                       'choice_label'=>'name',
+                       'choice_label'=>'name'
                    ))
                    ->add('taskId', TextType::class, array('data'=>$id))
                    ->add('status', ChoiceType::class, array(
@@ -67,6 +67,7 @@ class currentTaskController extends Controller
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $taskMemInj = $form->getData();
+            $taskMemInj->setName($taskMemInj->getName()->getName());
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($taskMemInj);
             $entityManager->flush();
